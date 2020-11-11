@@ -1,1 +1,1 @@
-fetch("rates.json").then((t=>t.json())).then((t=>{let e="";t.forEach((t=>e+=`<tr><td>${t.name}</td><td>${t.years}</td><td>${t.rate}%</td></tr>`)),document.getElementById("rates").innerHTML=e})).catch((t=>console.log(t)));
+(()=>{"use strict";let e=[{name:"30 years fixed",rate:"13",years:"30"},{name:"20 years fixed",rate:"2.8",years:"20"}];new Promise(((t,r)=>{e?t(e):r("No rates")})).then((e=>{let t="";e.forEach((e=>t+=`<tr><td>${e.name}</td><td>${e.years}</td><td>${e.rate}%</td></tr>`)),document.getElementById("rates").innerHTML=t})).catch((e=>console.log(e)))})();
