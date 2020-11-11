@@ -1,25 +1,28 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
 
 module.exports = {
-    entry: './js/main.js',
-    output: {
-        path: path.resolve(__dirname, 'build'),
-        filename: 'main.bundle.js'
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                query: {
-                    presets: ['es2015']
-                }
-            }
-        ]
-    },
-    stats: {
-        colors: true
-    },
-    devtool: 'source-map'
+  entry: {
+    app: './js/main.js'
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+
+  module: {
+    rules: [{
+      test: /\.js$/, // include .js files
+      enforce: "pre", // preload the jshint loader
+      exclude: /node_modules/, // exclude any and all files in the node_modules folder
+      use: [{
+        loader: "jshint-loader",
+        // more options in the optional jshint object
+        options: {  // ⬅ formally jshint property
+          camelcase: true,
+          emitErrors: false,
+          failOnHint: false
+        }
+      }]
+    }]
+  },
 };
