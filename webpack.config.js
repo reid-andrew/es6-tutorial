@@ -2,11 +2,12 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    app: './js/main.js'
+      app: './js/main.js',
+      ratefinder: './js/ratefinder.js'
   },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+      path: path.resolve(__dirname, 'build'),
+      filename: '[name].bundle.js'
   },
 
   module: {

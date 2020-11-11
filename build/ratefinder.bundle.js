@@ -1,0 +1,1 @@
+fetch("rates.json").then((t=>t.json())).then((t=>{let e="";t.forEach((t=>e+=`<tr><td>${t.name}</td><td>${t.years}</td><td>${t.rate}%</td></tr>`)),document.getElementById("rates").innerHTML=e})).catch((t=>console.log(t)));
